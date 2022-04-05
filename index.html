@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(#2b1055, #7597de);
+    }
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10000;
+    }
+    header .logo {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header ul li {
+      list-style: none;
+      margin-left: 20px;
+    }
+    header ul li a {
+      text-decoration: none;
+      padding: 6px 15px;
+      color: #fff;
+      border-radius: 20px;
+    }
+    header ul li a:hover,
+    header ul li a.active {
+      background: #fff;
+      color: #2b1055;
+    }
+    section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      padding: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    section:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to top, #1c0522, transparent);
+      z-index: 1000;
+    }
+    section img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    section img#moon {
+      mix-blend-mode: screen;
+    }
+    section img#mountains_front {
+      z-index: 10;
+    }
+    #text {
+      position: absolute;
+      color: #fff;
+      right: -560px;
+      white-space: nowrap;
+      font-size: 7.5vw;
+      z-index: 9;
+    }
+    #btn {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 30px;
+      border-radius: 40px;
+      background: #fff;
+      color: #2b1055;
+      font-size: 1.5em;
+      z-index: 9;
+      transform: translateY(100px);
+    }
+    .about {
+      position: relative;
+      padding: 100px;
+      background: #1c0522;
+    }
+    .about h2 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .about p {
+      font-size: 1.2em;
+      color: #fff;
+      text-align: justify;
+    }
+    .work {
+      position: relative;
+      padding: 100px;
+      background: #1c0522;
+    }
+    .work h2 {
+      font-size: 3.5em;
+      margin-bottom: 5rem;
+      color: #fff;
+    }
+    .work .p {
+      font-size: 1.2em;
+      color: #fff;
+      text-align: justify;
+      margin-top: 2rem;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      padding: 1rem;
+      height: 80vh;
+      overflow-y: scroll;
+      scrollbar-width: normal;
+      scrollbar-color: white;
+    }
+    .p::-webkit-scrollbar {
+      width: 6px;
+      border-radius: 10px;
+    }
+
+    .p::-webkit-scrollbar-thumb {
+      background-color: #603474;
+    }
+
+    .p::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    .work .form {
+      color: #fff;
+      position: relative;
+    }
+    .work .form .textbox {
+      border: 2px solid #fff;
+      border-radius: 5px;
+      outline: none;
+      background: none;
+      padding: 10px;
+      color: #fff;
+      width: 50%;
+    }
+    .work .form .form-label {
+      position: absolute;
+      top: 0.6rem;
+      left: 1.4rem;
+      cursor: text;
+      transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    }
+    .textbox:focus {
+      border: 2px solid #adffff;
+    }
+    .textbox:focus ~ .form-label,
+    .textbox:not(:placeholder-shown).textbox:not(:focus) ~ .form-label {
+      top: -0.6rem;
+      left: 0.5rem;
+      background: #1c0522;
+    }
+    .work .form button {
+      margin: 1rem;
+      height: 2.8rem;
+      width: 8rem;
+      font-size: 1rem;
+      background: none;
+      border-radius: 20px;
+      color: #fff;
+      border: 2px solid #fff;
+      transition: ease-in-out 0.5s;
+    }
+    .work .form button:hover {
+      background: white;
+      color: #603474;
+      font-size: 1.1rem;
+      font-weight: 600;
+      height: 3rem;
+      width: 8.2rem;
+    }
+  </style>
+  <body>
+    <header>
+      <a href="" class="logo">Logo</a>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </header>
+    <section>
+      <img src="../images/stars.png" id="stars" />
+      <img src="../images/moon.png" id="moon" />
+      <h2 id="text">Major Project 2</h2>
+      <a href="#work" id="btn">Get Started</a>
+      <img src="../images/mountains_behind.png" id="mountains_behind" />
+      <img src="../images/mountains_front.png" id="mountains_front" />
+    </section>
+    <div class="about" id="about">
+      <h2>Motivation Behind</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non
+        laboriosam dignissimos officia quo voluptatem rem blanditiis distinctio
+        veniam optio dolorum quos rerum perspiciatis adipisci sed officiis,
+        similique, iste vero? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Mollitia nesciunt quam repellendus sunt voluptate eum! Officia
+        doloribus quasi placeat veritatis veniam corrupti, corporis accusamus
+        neque asperiores recusandae sit, nemo eveniet! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Sunt tempore vitae reiciendis dolorem
+        aperiam, quam, minima quas libero debitis odio soluta tenetur distinctio
+        deserunt obcaecati voluptatum odit, accusamus ullam ea. <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non
+        laboriosam dignissimos officia quo voluptatem rem blanditiis distinctio
+        veniam optio dolorum quos rerum perspiciatis adipisci sed officiis,
+        similique, iste vero? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Mollitia nesciunt quam repellendus sunt voluptate eum! Officia
+        doloribus quasi placeat veritatis veniam corrupti, corporis accusamus
+        neque asperiores recusandae sit, nemo eveniet! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Sunt tempore vitae reiciendis dolorem
+        aperiam, quam, minima quas libero debitis odio soluta tenetur distinctio
+        deserunt obcaecati voluptatum odit, accusamus ullam ea. <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non
+        laboriosam dignissimos officia quo voluptatem rem blanditiis distinctio
+        veniam optio dolorum quos rerum perspiciatis adipisci sed officiis,
+        similique, iste vero? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Mollitia nesciunt quam repellendus sunt voluptate eum! Officia
+        doloribus quasi placeat veritatis veniam corrupti, corporis accusamus
+        neque asperiores recusandae sit, nemo eveniet! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Sunt tempore vitae reiciendis dolorem
+        aperiam, quam, minima quas libero debitis odio soluta tenetur distinctio
+        deserunt obcaecati voluptatum odit, accusamus ullam ea.
+      </p>
+    </div>
+
+    <div class="work" id="work">
+      <h2>Youtube Transcript Summarizer</h2>
+      <div class="form">
+        <input type="text" name="" placeholder="" class="textbox" />
+        <label class="form-label">Enter your link</label>
+        <button>Summarize</button>
+      <div class="p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non
+        laboriosam dignissimos officia quo voluptatem rem blanditiis distinctio
+        veniam optio dolorum quos rerum perspiciatis adipisci sed officiis,
+        similique, iste vero? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Mollitia nesciunt quam repellendus sunt voluptate eum! Officia
+        doloribus quasi placeat veritatis veniam corrupti, corporis accusamus
+        neque asperiores recusandae sit, nemo eveniet! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Sunt tempore vitae reiciendis dolorem
+        aperiam, quam, minima quas libero debitis odio soluta tenetur distinctio
+        deserunt obcaecati voluptatum odit, accusamus ullam ea. <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non
+        laboriosam dignissimos officia quo voluptatem rem blanditiis distinctio
+        veniam optio dolorum quos rerum perspiciatis adipisci sed officiis,
+        similique, iste vero? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Mollitia nesciunt quam repellendus sunt voluptate eum! Officia
+        doloribus quasi placeat veritatis veniam corrupti, corporis accusamus
+        neque asperiores recusandae sit, nemo eveniet! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Sunt tempore vitae reiciendis dolorem
+        aperiam, quam, minima quas libero debitis odio soluta tenetur distinctio
+        deserunt obcaecati voluptatum odit, accusamus ullam ea. <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non
+        laboriosam dignissimos officia quo voluptatem rem blanditiis distinctio
+        veniam optio dolorum quos rerum perspiciatis adipisci sed officiis,
+        similique, iste vero? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Mollitia nesciunt quam repellendus sunt voluptate eum! Officia
+        doloribus quasi placeat veritatis veniam corrupti, corporis accusamus
+        neque asperiores recusandae sit, nemo eveniet! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Sunt tempore vitae reiciendis dolorem
+        aperiam, quam, minima quas libero debitis odio soluta tenetur distinctio
+        deserunt obcaecati voluptatum odit, accusamus ullam ea.
+      </div>
+    </div>
+
+    <script>
+      let stars = document.getElementById("stars");
+      let moon = document.getElementById("moon");
+      let mountains_behind = document.getElementById("mountains_behind");
+      let text = document.getElementById("text");
+      let btn = document.getElementById("btn");
+      let mountains_front = document.getElementById("mountains_front");
+      let header = document.querySelector("header");
+
+      window.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        stars.style.left = value * 0.25 + "px";
+        moon.style.top = value * 1.05 + "px";
+        mountains_behind.style.top = value * 0.5 + "px";
+        mountains_front.style.top = value * 0 + "px";
+        text.style.marginRight = value * 4 + "px";
+        text.style.top = value * 1.5 + "px";
+        btn.style.top = value * 1.5 + "px";
+        header.style.top = value * 0.5 + "px";
+      });
+    </script>
+  </body>
+</html>
